@@ -4,6 +4,7 @@ $(ready);
 let counter = 1;
 let currentPerson = 0;
 function ready() {
+    counter = 1;
     for (let person of people) {
         let row = $(`
             <div class="faces">
@@ -25,10 +26,11 @@ function imageClicked() {
     console.log('click');
     let faceNumber = $(this).data(`name`);
     if (faceNumber === currentPerson) {
-        alert('You Found Them!')
-        
+        alert('You Found Them!');
+        $('#container').empty();
+        ready();
     } else {
-        alert('Oh no, try again!')
+        alert('Oh no, try again!');
     }
 }
 
